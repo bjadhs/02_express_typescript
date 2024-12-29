@@ -8,8 +8,11 @@ app.get('/', async (req, res, next)=>{
     const err = createHttpError(401,'This is a bad request');
     next(err);
     // res.send("Hello World");
+});
 
-
+app.get('/api',(req, res) => {
+    const error = createHttpError(404, 'Not Found');
+    throw error;
 })
 
 app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
